@@ -1,2 +1,3 @@
 # CoreMongoCrud
-.Net Core ile basic MongoDB crud işlemleri yapıldı. 
+.Net Core ile MongoDB CRUD işlemleri basit bir şekilde yapıldı. 
+
