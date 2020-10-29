@@ -9,8 +9,8 @@ namespace MongoCRUD.Services.Users
 {
     public class UserService : IUserService
     {
-        private readonly MongoRepository<User> _userRepository;
-        public UserService(MongoRepository<User> userRepository)
+        private readonly UserRepository _userRepository;
+        public UserService(UserRepository userRepository)
         {
             _userRepository = userRepository;
         }
@@ -37,13 +37,13 @@ namespace MongoCRUD.Services.Users
             return response;
         }
 
-        public async Task<BaseResponse<int>> InsertUserAsync(User model)
+        public async Task<BaseResponse<User>> InsertUserAsync(User model)
         {
-            var response = new BaseResponse<int>();
+            var response = new BaseResponse<User>();
             var result = await _userRepository.InsertAsync(model);
-            if (Convert.ToInt32(result.Id) != default)
+            if (result.Id != default)
             {
-                response.Data = Convert.ToInt32(result.Id);
+                response.Data = result;
                 return response;
             }
             response.Errors.Add("Kullanıcı kayıt işlemi sırasında hata oluştu");

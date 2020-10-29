@@ -13,7 +13,7 @@ namespace MongoCRUD.Services.Users
 
         Task<BaseResponse<User>> UpdateUserAsync(User model);
 
-        Task<BaseResponse<int>> InsertUserAsync(User model);
+        Task<BaseResponse<User>> InsertUserAsync(User model);
 
         Task DeleteUserAsync(int id);
 
